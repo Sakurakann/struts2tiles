@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+  "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+  <constant name="struts.devMode" value="true" />
+
+  <package name="basicstruts2" extends="struts-default">
+    <action name="index">
+      <result>/index.jsp</result>
+    </action>
+    <action name="">
+      <result>/index.jsp</result>
+    </action>
+  </package>
+  
+  <package name="pk1" namespace="/struts" extends="struts-default">
+    <result-types>
+      <result-type name="tiles"
+        class="org.apache.struts2.views.tiles.TilesResult" />
+    </result-types>
+    <action name="tiles" class="com.sknn.tiles.action.TilesAction" method="tile">
+      <result type="tiles" name="tilePage">struts-tiles</result>
+    </action>
+  </package>
+  
+  <package name="pk2" namespace="/struts" extends="tiles-default">
+    <action name="tiles2" class="com.sknn.tiles.action.TilesAction" method="tile">
+      <result type="tiles" name="tilePage">struts-tiles</result>
+    </action>
+  </package>
+
+</struts>
